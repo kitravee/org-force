@@ -8,63 +8,37 @@ generator client {
 
 datasource db {
   provider = "mongodb"
-  url      = env("DATABASE_URL")
+  url      = "mongodb+srv://dev-openluncher:5csUpbERnofuHar0@cluster0.pna4hig.mongodb.net/myDatabase?retryWrites=true&w=majority"
 }
 
 generator nestgraphql {
   provider                = "node node_modules/prisma-nestjs-graphql"
-  output                  = "../../../generated/db-types/src"
-  purgeOutput                   = false
-  combineScalarFilters          = true
-  emitSingle                    = true
-  noAtomicOperations            = true
+  output                  = "../../../generated-db-types/src"
+  purgeOutput             = false
+  combineScalarFilters    = true
+  emitSingle              = true
+  noAtomicOperations      = true
   // field validator
-  fields_Validator_input        = true
-  fields_Validator_output       = true
-  fields_Validator_model        = true
-  fields_Validator_from         = "class-validator"
+  fields_Validator_input  = true
+  fields_Validator_output = true
+  fields_Validator_model  = true
+  fields_Validator_from   = "class-validator"
   // Args where|data nested validator
-  decorate_1_type               = "*Args"
-  decorate_1_field              = "@(data|where)"
-  decorate_1_name               = ValidateNested
-  decorate_1_from               = "class-validator"
-  decorate_1_arguments          = "['{ each: true }']"
+  decorate_1_type         = "*Args"
+  decorate_1_field        = "@(data|where)"
+  decorate_1_name         = ValidateNested
+  decorate_1_from         = "class-validator"
+  decorate_1_arguments    = "[]"
 }
 
 model User {
   id String @id @default(auto()) @map("_id") @db.ObjectId
 
   /// @Validator.IsEmail()
-  email String  @unique
+  email String @unique
 
   /// @Validator.IsString()
   /// @Validator.MaxLength(100)
   /// @Validator.MinLength(3)
   name String?
-
-  /// @Validator.IsString()
-  /// @Validator.MaxLength(100)
-  /// @Validator.MinLength(8)
-  /// @HideField()
-  password String
-}
-
-model Supporter {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-
-  /// @Validator.IsInt()
-  /// @Validator.Min(0)
-  /// @Validator.Max(5)
-  rate Float
-
-  createdAt DateTime @default(now())
-
-  displayName String
-
-  /// @Validator.IsEmail()
-  email String @unique
-
-  mobile String?
-
-  message String?
 }
