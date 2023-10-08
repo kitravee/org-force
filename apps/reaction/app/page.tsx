@@ -1,4 +1,4 @@
-import styles from './page.module.css';
+import styles from './page.module.css'
 
 export default async function Index() {
   /*
@@ -412,5 +412,5 @@ export default async function Index() {
         </div>
       </div>
     </div>
-  );
+  )
 }

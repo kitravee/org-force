@@ -1,10 +1,9 @@
-import { defineConfig } from '@playwright/test';
-import { nxE2EPreset } from '@nx/playwright/preset';
-
-import { workspaceRoot } from '@nx/devkit';
+import { workspaceRoot } from '@nx/devkit'
+import { nxE2EPreset } from '@nx/playwright/preset'
+import { defineConfig } from '@playwright/test'
 
 // For CI, you may want to set BASE_URL to the deployed application.
-const baseURL = process.env['BASE_URL'] || 'http://127.0.0.1:4200';
+const baseURL = process.env['BASE_URL'] || 'http://127.0.0.1:4200'
 
 /**
  * Read environment variables from file.
@@ -30,4 +29,4 @@ export default defineConfig({
     reuseExistingServer: !process.env.CI,
     cwd: workspaceRoot,
   },
-});
+})
