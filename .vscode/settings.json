@@ -1,0 +1,10 @@
+{
+  "search.exclude": {
+    "**/.next/**": true,
+    "**/.cache/**": true
+  },
+  "files.eol": "\n",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+}
