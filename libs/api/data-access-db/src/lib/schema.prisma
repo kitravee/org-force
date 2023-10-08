@@ -8,7 +8,7 @@ generator client {
 
 datasource db {
   provider = "mongodb"
-  url      = "mongodb+srv://dev-openluncher:5csUpbERnofuHar0@cluster0.pna4hig.mongodb.net/myDatabase?retryWrites=true&w=majority"
+  url      = env("DATABASE_URL")
 }
 
 generator nestgraphql {
