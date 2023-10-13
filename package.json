@@ -6,7 +6,8 @@
     "start:friction": "nx serve friction",
     "start:reaction": "nx serve reaction",
     "build": "nx build",
-    "db:studio": "npx env-cmd -f .local.env npx prisma studio"
+    "db:studio": "npx env-cmd -f .local.env npx prisma studio",
+    "prettier:fix": "npx prettier . --write"
   },
   "private": true,
   "dependencies": {
