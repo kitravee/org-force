@@ -7,6 +7,8 @@
     "start:reaction": "nx serve reaction",
     "build": "nx build",
     "db:studio": "npx env-cmd -f .local.env npx prisma studio",
+    "db:generate-types": "npx prisma generate",
+    "gen:gql": "graphql-codegen --config tools/gql-codegen/gql-codegen.ts --watch",
     "prettier:fix": "npx prettier . --write"
   },
   "private": true,
@@ -32,9 +34,17 @@
     "react-dom": "18.2.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.0",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "urql": "^4.0.5"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^5.0.0",
+    "@graphql-codegen/near-operation-file-preset": "^3.0.0",
+    "@graphql-codegen/typed-document-node": "^5.0.1",
+    "@graphql-codegen/typescript": "^4.0.1",
+    "@graphql-codegen/typescript-graphql-request": "^6.0.0",
+    "@graphql-codegen/typescript-operations": "^4.0.1",
+    "@graphql-codegen/typescript-urql": "^4.0.0",
     "@nestjs/schematics": "^10.0.1",
     "@nestjs/testing": "^10.0.2",
     "@nrwl/next": "16.10.0",
