@@ -1,3 +1,10 @@
 {
-  "singleQuote": true
+  "singleQuote": true,
+  "bracketSpacing": true,
+  "jsxSingleQuote": false,
+  "trailingComma": "all",
+  "bracketSameLine": false,
+  "printWidth": 80,
+  "proseWrap": "always",
+  "semi": false
 }
