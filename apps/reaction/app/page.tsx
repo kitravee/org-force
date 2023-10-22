@@ -12,14 +12,14 @@ export default async function Index() {
    */
 
   return (
-    <Suspense>
+    <>
       <div className={styles.page}>
         <div className="wrapper">
           <div className="container">
             <div id="welcome">
               <h1>
-                <span> Hello there, </span>
-                Welcome reaction 👋
+                <span> Hello there</span>
+                Welcome reaction
               </h1>
             </div>
 
@@ -418,8 +418,10 @@ export default async function Index() {
           </div>
         </div>
       </div>
-      <TestComponent />
-    </Suspense>
+      <Suspense>
+        <TestComponent />
+      </Suspense>
+    </>
   )
 }
 
