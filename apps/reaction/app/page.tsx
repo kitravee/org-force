@@ -4,7 +4,7 @@ import { Suspense } from 'react'
 
 import styles from './page.module.css'
 
-export default async function Index() {
+export default function Index() {
   /*
    * Replace the elements below with your own.
    *
@@ -18,7 +18,7 @@ export default async function Index() {
           <div className="container">
             <div id="welcome">
               <h1>
-                <span> Hello there</span>
+                <span> Hello there, </span>
                 Welcome reaction
               </h1>
             </div>
@@ -426,7 +426,7 @@ export default async function Index() {
 }
 
 function TestComponent() {
-  const data = useGetUsersQuery()
+  const [data] = useGetUsersQuery()
   return (
     <main>
       <h1>This is rendered as part of SSR</h1>
