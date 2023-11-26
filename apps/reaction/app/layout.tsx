@@ -2,6 +2,7 @@
 
 import './global.css'
 
+import { ThemeProvider } from '@org-force/ui'
 import { NextUrqlProvider } from '@org-force/web/urql'
 
 export default function RootLayout({
@@ -12,7 +13,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <NextUrqlProvider>{children}</NextUrqlProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <NextUrqlProvider>{children}</NextUrqlProvider>
+        </ThemeProvider>
       </body>
     </html>
   )
