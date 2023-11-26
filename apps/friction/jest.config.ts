@@ -1,4 +1,3 @@
-/* eslint-disable */
 export default {
   displayName: 'friction',
   preset: '../../jest.preset.js',

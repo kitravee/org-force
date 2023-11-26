@@ -25,4 +25,13 @@ async function bootstrap() {
   )
 }
 
-bootstrap()
+const runBootstrap = async () => {
+  try {
+    const text = await bootstrap()
+    console.log(text)
+  } catch {
+    // Deal with the fact the chain failed
+  }
+}
+
+runBootstrap()

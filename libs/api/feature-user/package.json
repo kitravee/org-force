@@ -2,7 +2,11 @@
   "name": "@org-force/api/feature-user",
   "version": "0.0.1",
   "dependencies": {
-    "@swc/helpers": "~0.5.2"
+    "@swc/helpers": "~0.5.2",
+    "@nestjs/common": "^10.0.2",
+    "@org-force/api/data-access-db": "*",
+    "@nestjs/graphql": "^12.0.9",
+    "@org-force/api/generated-db-types": "*"
   },
   "type": "commonjs",
   "main": "./src/index.js",
