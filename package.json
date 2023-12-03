@@ -5,7 +5,7 @@
   "scripts": {
     "start:friction": "nx serve friction",
     "start:reaction": "nx serve reaction",
-    "start:dev": "env-cmd -f .local.env concurrently --kill-others \"yarn start:reaction\" \"yarn start:friction\"  \"yarn:gen:gql\"",
+    "start:dev": "env-cmd -f .env concurrently --kill-others \"yarn gen:gql\" \"yarn start:reaction\" \"yarn start:friction\"",
     "build": "nx build",
     "print-affected": "nx print-affected --target=build --select=projects",
     "test-affected": "nx affected:test",
