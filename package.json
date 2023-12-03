@@ -11,12 +11,14 @@
     "test-affected": "nx affected:test",
     "lint-affected:fix": "nx affected:lint --fix --all",
     "graph": "nx graph",
-    "db:studio": "npx env-cmd -f .local.env npx prisma studio",
+    "db:studio": "npx env-cmd -f .env npx prisma studio",
     "gen:gql": "graphql-codegen --config tools/gql-codegen/gql-codegen.ts --watch",
     "prettier:fix": "npx prettier . --write",
     "db:generate-types": "npx prisma generate",
     "type:check": "tsc --noEmit -p apps/friction/tsconfig.json",
-    "verify": "nx workspace-lint && nx format:write && nx format:check && nx affected --target=lint --fix --parallel=3 && npx nx affected --target=test --parallel=3 && nx affected --target=build --parallel=3"
+    "verify": "nx workspace-lint && nx format:write && nx format:check && nx affected --target=lint --fix --parallel=3 && npx nx affected --target=test --parallel=3 && nx affected --target=build --parallel=3",
+    "validate:reaction-env": "npx env-cmd -f .env ts-node --project tools/tsconfig.json tools/environment/validate-reaction-env.ts",
+    "validate:friction-env": "npx env-cmd -f .env ts-node --project tools/tsconfig.tools.json tools/environment/validate-friction-env.ts"
   },
   "private": true,
   "dependencies": {
@@ -48,6 +50,7 @@
     "mercurius": "^13.1.0",
     "next": "13.4.1",
     "next-themes": "^0.2.1",
+    "prisma": "5.4.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "reflect-metadata": "^0.1.13",
