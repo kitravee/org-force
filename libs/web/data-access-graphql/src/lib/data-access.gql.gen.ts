@@ -7,7 +7,7 @@ export type GetUsersQueryVariables = Types.Exact<{ [key: string]: never }>
 
 export type GetUsersQuery = {
   __typename?: 'Query'
-  users: Array<{ __typename?: 'User'; id: string; name?: string | null }>
+  users: { __typename?: 'User'; id: string; name?: string | null }[]
 }
 
 export const GetUsersDocument = gql`

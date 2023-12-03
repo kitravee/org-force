@@ -1,8 +1,8 @@
 'use client'
+import { NextUrqlProvider } from '@org-force/web/urql'
 
 import './global.css'
-
-import { NextUrqlProvider } from '@org-force/web/urql'
+import { webEnv } from '../environments/environment'
 
 export default function RootLayout({
   children,
@@ -12,7 +12,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <NextUrqlProvider>{children}</NextUrqlProvider>
+        <NextUrqlProvider url={webEnv.api.gqlUrl}>{children}</NextUrqlProvider>
       </body>
     </html>
   )

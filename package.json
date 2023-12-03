@@ -7,10 +7,19 @@
     "start:reaction": "nx serve reaction",
     "start:dev": "env-cmd -f .env concurrently --kill-others \"yarn gen:gql\" \"yarn start:reaction\" \"yarn start:friction\"",
     "build": "nx build",
+    "print-affected": "nx print-affected --target=build --select=projects",
+    "test-affected": "nx affected:test",
+    "lint-affected:fix": "nx affected:lint --fix --all",
+    "graph": "nx graph",
     "db:studio": "npx env-cmd -f .local.env npx prisma studio",
     "db:generate-types": "npx prisma generate",
     "gen:gql": "graphql-codegen --config tools/gql-codegen/gql-codegen.ts --watch",
-    "prettier:fix": "npx prettier . --write"
+    "prettier:fix": "npx prettier . --write",
+
+    "type:check": "tsc --noEmit -p apps/friction/tsconfig.json",
+    "verify": "nx workspace-lint && nx format:write && nx format:check && nx affected --target=lint --fix --parallel=3 && npx nx affected --target=test --parallel=3 && nx affected --target=build --parallel=3",
+    "validate:reaction-env": "npx env-cmd -f .local.env ts-node --project tools/tsconfig.json tools/environment/validate-reaction-env.ts",
+    "validate:friction-env": "npx env-cmd -f .local.env ts-node --project tools/tsconfig.tools.json tools/environment/validate-friction-env.ts"
   },
   "private": true,
   "dependencies": {
@@ -93,6 +102,8 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "7.32.2",
     "eslint-plugin-react-hooks": "4.6.0",
+    "eslint-plugin-unicorn": "^49.0.0",
+    "eslint-plugin-unused-imports": "^3.0.0",
     "jest": "^29.4.1",
     "jest-environment-jsdom": "^29.4.1",
     "jest-environment-node": "^29.4.1",

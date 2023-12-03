@@ -50,7 +50,7 @@ export type MutationUpdateUserArgs = {
 export type Query = {
   __typename?: 'Query'
   user: User
-  users: Array<User>
+  users: User[]
 }
 
 export type QueryUserArgs = {
@@ -68,13 +68,13 @@ export type StringFilter = {
   equals?: InputMaybe<Scalars['String']['input']>
   gt?: InputMaybe<Scalars['String']['input']>
   gte?: InputMaybe<Scalars['String']['input']>
-  in?: InputMaybe<Array<Scalars['String']['input']>>
+  in?: InputMaybe<Scalars['String']['input'][]>
   isSet?: InputMaybe<Scalars['Boolean']['input']>
   lt?: InputMaybe<Scalars['String']['input']>
   lte?: InputMaybe<Scalars['String']['input']>
   mode?: InputMaybe<QueryMode>
   not?: InputMaybe<StringFilter>
-  notIn?: InputMaybe<Array<Scalars['String']['input']>>
+  notIn?: InputMaybe<Scalars['String']['input'][]>
   startsWith?: InputMaybe<Scalars['String']['input']>
 }
 
@@ -119,18 +119,18 @@ export type UserUpdateInput = {
 }
 
 export type UserWhereInput = {
-  AND?: InputMaybe<Array<UserWhereInput>>
-  NOT?: InputMaybe<Array<UserWhereInput>>
-  OR?: InputMaybe<Array<UserWhereInput>>
+  AND?: InputMaybe<UserWhereInput[]>
+  NOT?: InputMaybe<UserWhereInput[]>
+  OR?: InputMaybe<UserWhereInput[]>
   email?: InputMaybe<StringFilter>
   id?: InputMaybe<StringFilter>
   name?: InputMaybe<StringFilter>
 }
 
 export type UserWhereUniqueInput = {
-  AND?: InputMaybe<Array<UserWhereInput>>
-  NOT?: InputMaybe<Array<UserWhereInput>>
-  OR?: InputMaybe<Array<UserWhereInput>>
+  AND?: InputMaybe<UserWhereInput[]>
+  NOT?: InputMaybe<UserWhereInput[]>
+  OR?: InputMaybe<UserWhereInput[]>
   email?: InputMaybe<Scalars['String']['input']>
   id?: InputMaybe<Scalars['String']['input']>
   name?: InputMaybe<StringFilter>
