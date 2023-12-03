@@ -7,6 +7,9 @@ import {
 } from '@nestjs/platform-fastify'
 
 import { AppModule } from './app/app.module'
+import { apiEnv } from './environments/environment'
+
+const { isProd, api } = apiEnv
 
 async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(
@@ -15,14 +18,23 @@ async function bootstrap() {
   )
 
   // TODO: contentSecurityPolicy should turn on in production
-  await app.register(helmet, { contentSecurityPolicy: false })
+  await app.register(helmet, { contentSecurityPolicy: isProd })
   app.enableCors()
 
-  const port = process.env.PORT || 3333
-  await app.listen(port)
+  await app.listen(api.port)
+
   Logger.log(
-    `🚀 Application playground is running on: http://localhost:${port}/graphiql`,
+    `🚀 Application playground is running on: http://localhost:${api.port}/graphiql`,
   )
 }
 
-bootstrap()
+const runBootstrap = async () => {
+  try {
+    const text = await bootstrap()
+    console.log(text)
+  } catch {
+    // Deal with the fact the chain failed
+  }
+}
+
+runBootstrap()

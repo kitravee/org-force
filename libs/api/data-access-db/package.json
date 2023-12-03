@@ -2,7 +2,9 @@
   "name": "@org-force/api/data-access-db",
   "version": "0.0.1",
   "dependencies": {
-    "@swc/helpers": "~0.5.2"
+    "@swc/helpers": "~0.5.2",
+    "@nestjs/common": "^10.0.2",
+    "@prisma/client": "^5.3.1"
   },
   "type": "commonjs",
   "main": "./src/index.js",
