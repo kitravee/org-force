@@ -1,4 +1,3 @@
-// eslint-disable-next-line unicorn/prefer-node-protocol
 import * as process from 'process'
 
 export const webEnv: WebEnv = {
