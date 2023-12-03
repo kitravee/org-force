@@ -5,6 +5,8 @@ import './global.css'
 import { ThemeProvider } from '@org-force/ui'
 import { NextUrqlProvider } from '@org-force/web/urql'
 
+import { webEnv } from '../environments/environment'
+
 export default function RootLayout({
   children,
 }: {
@@ -19,7 +21,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <NextUrqlProvider>{children}</NextUrqlProvider>
+          <NextUrqlProvider url={webEnv.api.gqlUrl}>
+            {children}
+          </NextUrqlProvider>
         </ThemeProvider>
       </body>
     </html>

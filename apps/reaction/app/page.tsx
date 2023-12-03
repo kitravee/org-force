@@ -2,7 +2,10 @@
 import { useGetUsersQuery } from '@org-force/web/data-access-graphql'
 import { Suspense } from 'react'
 
+import { webEnv } from '../environments/environment'
 import styles from './page.module.css'
+
+const { api } = webEnv
 
 export default function Index() {
   /*

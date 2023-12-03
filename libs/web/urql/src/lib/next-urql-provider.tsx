@@ -7,19 +7,17 @@ import {
   createClient,
 } from '@urql/next'
 import { useMemo } from 'react'
-import { z } from 'zod'
 
 type Props = {
   children: React.ReactNode
+  url: string
 }
 
-const envSchema = z.string().min(1)
-
-export const NextUrqlProvider: React.FC<Props> = ({ children }) => {
+export const NextUrqlProvider: React.FC<Props> = ({ children, url }) => {
   const [client, ssr] = useMemo(() => {
     const ssrData = ssrExchange()
     const clientData = createClient({
-      url: envSchema.parse(process.env.NEXT_PUBLIC_GRAPHQL_URL),
+      url: url,
       exchanges: [cacheExchange, ssrData, fetchExchange, devtoolsExchange],
       suspense: true,
     })
