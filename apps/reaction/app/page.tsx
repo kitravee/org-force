@@ -1,11 +1,9 @@
 'use client'
-import { useGetUsersQuery } from '@org-force/web/data-access-graphql'
 import { Suspense } from 'react'
 
-import { webEnv } from '../environments/environment'
 import styles from './page.module.css'
 
-const { api } = webEnv
+// const { api } = webEnv
 
 export default function Index() {
   /*
@@ -429,7 +427,7 @@ export default function Index() {
 }
 
 function TestComponent() {
-  const [data] = useGetUsersQuery()
+  // const [_data] = useGetUsersQuery()
   return (
     <main>
       <h1>This is rendered as part of SSR</h1>
