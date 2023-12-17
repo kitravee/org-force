@@ -14,9 +14,9 @@ jobs:
         with:
           fetch-depth: 0
       - uses: nrwl/nx-set-shas@v3
-      - run: yarn install --frozen-lockfile
+      - run: yarn install --immutable
       - run: yarn db:generate-types
       - run: npx nx format:check
-      - run: npx nx affected --target=lint --parallel=3
-      - run: npx nx affected --target=test --parallel=3 --configuration=ci
-      - run: npx nx affected --target=build --parallel=3
+      - run: npx nx affected --target=lint
+      - run: npx nx affected --target=test
+      - run: npx nx affected --target=build
