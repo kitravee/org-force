@@ -6,7 +6,7 @@
   "tags": ["scope:web"],
   "targets": {
     "lint": {
-      "executor": "@nx/linter:eslint",
+      "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["libs/web/urql/**/*.{ts,tsx,js,jsx}"]
