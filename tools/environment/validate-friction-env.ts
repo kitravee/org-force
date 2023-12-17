@@ -1,4 +1,7 @@
-import { apiEnv, ApiEnv } from '../../apps/friction/src/environments/environment';
+import {
+  apiEnv,
+  ApiEnv,
+} from '../../apps/friction/src/environments/environment'
 import { plainToInstance, Type } from 'class-transformer'
 import {
   IsNotEmpty,
