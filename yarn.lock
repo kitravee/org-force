@@ -3021,7 +3021,7 @@
   dependencies:
     playwright "1.40.1"
 
-"@prisma/client@^5.3.1":
+"@prisma/client@^5.7.0":
   version "5.7.0"
   resolved "https://registry.yarnpkg.com/@prisma/client/-/client-5.7.0.tgz#c29dd9a16e100902eb2d2443d90fee2482d2aeac"
   integrity sha512-cZmglCrfNbYpzUtz7HscVHl38e9CrUs31nrVoGUK1nIPXGgt8hT4jj2s657UXcNdQ/jBUxDgGmHyu2Nyrq1txg==
@@ -3031,7 +3031,7 @@
   resolved "https://registry.yarnpkg.com/@prisma/debug/-/debug-5.7.0.tgz#abdb2060be4fe819e73e2683cf1b039841566198"
   integrity sha512-tZ+MOjWlVvz1kOEhNYMa4QUGURY+kgOUBqLHYIV8jmCsMuvA1tWcn7qtIMLzYWCbDcQT4ZS8xDgK0R2gl6/0wA==
 
-"@prisma/generator-helper@^5.7.0":
+"@prisma/generator-helper@^5.3.1":
   version "5.7.0"
   resolved "https://registry.yarnpkg.com/@prisma/generator-helper/-/generator-helper-5.7.0.tgz#73093ef7d3bf751a7bb0a6f7f798c318cbae3ef4"
   integrity sha512-Fn4hJHKGJ49+E8sxpfslRauB3Goa3RAENJ/W25NMR754B9KxvmbCJyE3MT/lIZxML2nGgIdXYUtoDHZHnRaKDw==
@@ -11853,12 +11853,12 @@ pretty-format@^29.0.0, pretty-format@^29.7.0:
     ansi-styles "^5.0.0"
     react-is "^18.0.0"
 
-prisma-nestjs-graphql@^19.2.0:
-  version "19.3.1"
-  resolved "https://registry.yarnpkg.com/prisma-nestjs-graphql/-/prisma-nestjs-graphql-19.3.1.tgz#cc33176512934ea666969b7bf19a3088174d9ae8"
-  integrity sha512-haqiCkd1SJyDJdKf0GKuFkza/iw0QA5RTxZZ38F9bMgkY/PDXAtThJLPzwPyteUvB6fIkHJOgtyKgbpalbE7LQ==
+prisma-nestjs-graphql@19.2.0:
+  version "19.2.0"
+  resolved "https://registry.yarnpkg.com/prisma-nestjs-graphql/-/prisma-nestjs-graphql-19.2.0.tgz#c4f2f45ed8aac471371211c2b9920466bbb9779c"
+  integrity sha512-ydg2vgek59/gw0eiFIZ3bRplOGjmJS5qjKjCazA5H/1HywuHFkWcn9rrZojfyJ3t9I/HubTVugOrkhdhgWQQfg==
   dependencies:
-    "@prisma/generator-helper" "^5.7.0"
+    "@prisma/generator-helper" "^5.3.1"
     await-event-emitter "^2.0.2"
     filenamify "4.X"
     flat "5.X"
