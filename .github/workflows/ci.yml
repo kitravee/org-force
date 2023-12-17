@@ -1,0 +1,22 @@
+name: CI
+on:
+  pull_request:
+    types:
+      - ready_for_review
+    branches:
+      - main
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: nrwl/nx-set-shas@v3
+      - run: yarn install --immutable
+      - run: yarn db:generate-types
+      - run: npx nx format:check
+      - run: npx nx affected --target=lint
+      - run: npx nx affected --target=test
+      - run: npx nx affected --target=build

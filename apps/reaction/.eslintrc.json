@@ -17,7 +17,8 @@
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
       "rules": {
-        "@next/next/no-html-link-for-pages": ["error", "apps/reaction/pages"]
+        "@next/next/no-html-link-for-pages": ["error", "apps/reaction/pages"],
+        "unicorn/prefer-node-protocol": "off"
       }
     },
     {
