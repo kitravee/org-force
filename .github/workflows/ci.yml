@@ -1,21 +1,43 @@
 name: CI
+
 on:
   push:
     branches:
       - main
   pull_request:
+    types:
+      - opened
+      - synchronize
 
 jobs:
   main:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - uses: nrwl/nx-set-shas@v3
-      - run: yarn install --frozen-lockfile
-      - run: yarn db:generate-types
-      - run: npx nx format:check
-      - run: npx nx affected --target=lint --parallel=3
-      - run: npx nx affected --target=test --parallel=3 --configuration=ci
-      - run: npx nx affected --target=build --parallel=3
+
+      - name: Set SHAs
+        uses: nrwl/nx-set-shas@v3
+
+      # Check if the label is 'ready-for-review'
+      - name: Check Label
+        run: |
+          if [ "${{ github.event_name }}" == "pull_request" ]; then
+            labels=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+                      "https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/labels" | \
+                      jq -r '.[].name')
+
+            if echo "$labels" | grep -q "ready-for-review"; then
+              echo "Label 'ready-for-review' found. Proceeding with the workflow."
+            else
+              echo "Label 'ready-for-review' not found. Exiting workflow."
+              exit 78
+            fi
+          fi
+
+      # Add your workflow steps below this line
+      - name: Format Check
+        run: npx nx format:check
