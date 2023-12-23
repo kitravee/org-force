@@ -363,7 +363,7 @@ export class UserCreateManyInput {
     @Field(() => String, {nullable:true})
     @Validator.IsString()
     @Validator.MaxLength(100)
-    @Validator.MinLength(3)
+    @Validator.MinLength(6)
     name?: string;
 }
 
@@ -377,7 +377,7 @@ export class UserCreateInput {
     @Field(() => String, {nullable:true})
     @Validator.IsString()
     @Validator.MaxLength(100)
-    @Validator.MinLength(3)
+    @Validator.MinLength(6)
     name?: string;
 }
 
@@ -415,7 +415,7 @@ export class UserGroupBy {
     @Field(() => String, {nullable:true})
     @Validator.IsString()
     @Validator.MaxLength(100)
-    @Validator.MinLength(3)
+    @Validator.MinLength(6)
     name?: string;
     @Field(() => UserCountAggregate, {nullable:true})
     _count?: InstanceType<typeof UserCountAggregate>;
@@ -445,7 +445,7 @@ export class UserMaxAggregate {
     @Field(() => String, {nullable:true})
     @Validator.IsString()
     @Validator.MaxLength(100)
-    @Validator.MinLength(3)
+    @Validator.MinLength(6)
     name?: string;
 }
 
@@ -479,7 +479,7 @@ export class UserMinAggregate {
     @Field(() => String, {nullable:true})
     @Validator.IsString()
     @Validator.MaxLength(100)
-    @Validator.MinLength(3)
+    @Validator.MinLength(6)
     name?: string;
 }
 
@@ -545,7 +545,7 @@ export class UserUncheckedCreateInput {
     @Field(() => String, {nullable:true})
     @Validator.IsString()
     @Validator.MaxLength(100)
-    @Validator.MinLength(3)
+    @Validator.MinLength(6)
     name?: string;
 }
 
@@ -557,7 +557,7 @@ export class UserUncheckedUpdateManyInput {
     @Field(() => String, {nullable:true})
     @Validator.IsString()
     @Validator.MaxLength(100)
-    @Validator.MinLength(3)
+    @Validator.MinLength(6)
     name?: string;
 }
 
@@ -569,7 +569,7 @@ export class UserUncheckedUpdateInput {
     @Field(() => String, {nullable:true})
     @Validator.IsString()
     @Validator.MaxLength(100)
-    @Validator.MinLength(3)
+    @Validator.MinLength(6)
     name?: string;
 }
 
@@ -581,7 +581,7 @@ export class UserUpdateManyMutationInput {
     @Field(() => String, {nullable:true})
     @Validator.IsString()
     @Validator.MaxLength(100)
-    @Validator.MinLength(3)
+    @Validator.MinLength(6)
     name?: string;
 }
 
@@ -593,7 +593,7 @@ export class UserUpdateInput {
     @Field(() => String, {nullable:true})
     @Validator.IsString()
     @Validator.MaxLength(100)
-    @Validator.MinLength(3)
+    @Validator.MinLength(6)
     name?: string;
 }
 
