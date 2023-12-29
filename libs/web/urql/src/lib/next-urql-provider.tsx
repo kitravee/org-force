@@ -1,3 +1,4 @@
+'use client'
 import { devtoolsExchange } from '@urql/devtools'
 import {
   UrqlProvider,
