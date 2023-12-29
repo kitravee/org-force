@@ -1,9 +1,12 @@
 // 'use client'
 import { ThemeProvider } from '@org-force/ui'
+import { NextUrqlProvider } from '@org-force/web/urql'
 
 import { ComponentTest } from '../components/component-test'
+import { webEnv } from '../environments'
 import { auth } from '../libs/next-auth/auth-option'
 import { NextAuthSessionProvider } from '../libs/next-auth/next-auth-session-provider'
+import './global.css'
 
 export default async function RootLayout({
   children,
@@ -23,8 +26,10 @@ export default async function RootLayout({
           disableTransitionOnChange
         >
           <NextAuthSessionProvider session={session}>
-            {children}
-            <ComponentTest />
+            <NextUrqlProvider url={webEnv.api.gqlUrl}>
+              {children}
+              <ComponentTest />
+            </NextUrqlProvider>
           </NextAuthSessionProvider>
         </ThemeProvider>
       </body>
