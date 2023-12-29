@@ -1,18 +1,20 @@
-'use client'
+// 'use client'
 import { ThemeProvider } from '@org-force/ui'
-import { NextUrqlProvider } from '@org-force/web/urql'
 
-import { webEnv } from '../environments/environment'
+import { ComponentTest } from '../components/component-test'
+import { auth } from '../libs/next-auth/auth-option'
+import { NextAuthSessionProvider } from '../libs/next-auth/next-auth-session-provider'
 
-import './global.css'
-
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const session = await auth()
+  console.log(session)
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head />
       <body>
         <ThemeProvider
           attribute="class"
@@ -20,9 +22,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <NextUrqlProvider url={webEnv.api.gqlUrl}>
+          <NextAuthSessionProvider session={session}>
             {children}
-          </NextUrqlProvider>
+            <ComponentTest />
+          </NextAuthSessionProvider>
         </ThemeProvider>
       </body>
     </html>
