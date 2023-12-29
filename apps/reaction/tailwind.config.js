@@ -4,6 +4,7 @@ const { createGlobPatternsForDependencies } = require('@nx/react/tailwind')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  presets: [require('../../libs/web/ui/tailwind.base.preset.js')],
   content: [
     join(
       __dirname,
