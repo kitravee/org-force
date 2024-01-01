@@ -1,7 +1,7 @@
 const { join } = require('node:path')
 
 const { createGlobPatternsForDependencies } = require('@nx/react/tailwind')
-const { fontFamily } = require('tailwindcss/defaultTheme')
+// const { fontFamily } = require('tailwindcss/defaultTheme')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -15,13 +15,21 @@ module.exports = {
   ],
   theme: {
     container: {
-      center: true,
-      padding: '2rem',
-      screens: {
-        '2xl': '1400px',
+      // center: true,
+      padding: {
+        DEFAULT: '1rem',
+        sm: '2rem',
+        lg: '4rem',
+        xl: '5rem',
+        '2xl': '6rem',
       },
     },
+
     extend: {
+      fontFamily: {
+        sans: ['var(--font-geist-sans)'],
+        mono: ['var(--font-geist-mono)'],
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
@@ -61,9 +69,6 @@ module.exports = {
         lg: `var(--radius)`,
         md: `calc(var(--radius) - 2px)`,
         sm: 'calc(var(--radius) - 4px)',
-      },
-      fontFamily: {
-        sans: ['var(--font-sans)', ...fontFamily.sans],
       },
       keyframes: {
         'accordion-down': {
